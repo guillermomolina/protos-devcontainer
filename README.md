@@ -12,6 +12,7 @@ The development environment provides:
 - The official Protos VS Code extension `0.1.0`
 - The supported GraalVM runtime required by the Protos `0.3.0` distribution
 - A ready-to-use VS Code development environment
+- A curated set of Protos examples
 
 The bundled versions are recorded in `versions.json`.
 
@@ -58,6 +59,26 @@ You can also execute expressions directly:
 ```sh
 protos -e 'print("Hello from Protos")'
 ```
+
+## Examples
+
+The `examples/` directory contains a curated selection of examples from the
+Protos `v0.3.0` release.
+
+The selection covers:
+
+- algorithms
+- basics
+- closures
+- collections
+- concurrency
+- control flow
+- objects
+- paths
+- hello world
+
+These files are a convenience snapshot for this development environment.
+The canonical Protos examples remain maintained in the main Protos repository.
 
 ## VS Code integration
 

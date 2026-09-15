@@ -1,0 +1,36 @@
+# Protos examples
+
+This directory is a task-oriented cookbook: **how do I do X in Protos?** It is inspired by the task-oriented organization of Rosetta Code rather than by a linear tutorial.
+
+All Protos source files use the canonical `.protos` extension. Examples are non-normative; `spec/` remains authoritative.
+
+Print-dependent cookbook programs are maintained as executable standalone-CLI sources. The CLI regression suite discovers every `.protos` file in this tree containing `print(` and executes it unchanged, including concurrent examples whose `Future.value()` suspension must run inside the Process RootActor task.
+
+| Task | Example |
+| --- | --- |
+| Print a value | `hello-world.protos` |
+| Create and modify slots | `basics/slots.protos` |
+| Create an object | `objects/object-literal.protos` |
+| Delegate behavior | `objects/delegation.protos` |
+| Override delegated behavior | `objects/overriding.protos` |
+| Use `this` | `objects/this.protos` |
+| Create a closure | `closures/basic.protos` |
+| Capture local state | `closures/captured-state.protos` |
+| Pass behavior as a value | `closures/higher-order.protos` |
+| Work with closure call arguments | `closures/rest-arguments.protos` |
+| Share captured mutable state across closures | `closures/shared-captured-state.protos` |
+| Inherit callable behavior through delegation | `objects/inherited-callability.protos` |
+| Express conditional control flow | `control-flow/conditional.protos` |
+| Compute Fibonacci recursively | `algorithms/fibonacci-recursive.protos` |
+| Compute factorial recursively | `algorithms/factorial-recursive.protos` |
+| Use value-keyed maps | `collections/maps.protos` |
+| Use identity-keyed maps | `collections/identity-map.protos` |
+| Use structurally equal values as Map vs IdentityMap keys | `collections/path-keys.protos` |
+| Build and compare portable paths | `paths/portable-paths.protos` |
+| Run work asynchronously and compose Futures | `concurrency/future-chain.protos` |
+| Observe the current Actor identity | `concurrency/actor-current.protos` |
+| Spawn an Actor and request a reply | `concurrency/actor-request-reply.protos` |
+| Observe same-sender FIFO with send then request | `concurrency/actor-send-fifo.protos` |
+| Route a request through an ActorGroup | `concurrency/actor-group-request.protos` |
+| Execute work in an isolated parallel domain | `concurrency/parallel-execution.protos` |
+| Encode, mutate, and decode bytes | `io/encoding-and-bytes.protos` |
