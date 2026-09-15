@@ -1,4 +1,4 @@
-FROM ghcr.io/graalvm/jdk-community:25i3-25.0.4.1-ol9
+FROM ghcr.io/graalvm/jdk-community:25i3-25.0.4.1-ol10
 
 RUN microdnf install -y \
         ca-certificates \
