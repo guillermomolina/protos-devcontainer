@@ -1,0 +1,16 @@
+{
+  "name": "Protos Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/protos-devcontainer",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "guillermomolina.protos"
+      ]
+    }
+  }
+}
