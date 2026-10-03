@@ -8,11 +8,13 @@ This repository is for **using Protos**, not for developing the Protos language 
 
 The development environment provides:
 
-- Protos `0.3.0`
-- The official Protos VS Code extension `0.1.0`
-- The supported GraalVM runtime required by the Protos `0.3.0` distribution
+- Protos `0.3.143` from the published self-contained Native Linux x86_64 release
+- The official Protos VS Code extension `0.2.1`
 - A ready-to-use VS Code development environment
 - A curated set of Protos examples
+
+The selected Protos Native artifact does not require an external Java/GraalVM
+runtime or Maven after installation.
 
 The bundled versions are recorded in `versions.json`.
 
@@ -37,7 +39,7 @@ protos --version
 You should see:
 
 ```text
-Protos 0.3.0
+Protos 0.3.143
 ```
 
 You can then create, edit, and run Protos programs directly inside the container.
@@ -62,8 +64,8 @@ protos -e 'print("Hello from Protos")'
 
 ## Examples
 
-The `examples/` directory contains a curated selection of examples from the
-Protos `v0.3.0` release.
+The `examples/` directory contains a curated selection of Protos examples
+for this development environment.
 
 The selection covers:
 
@@ -82,19 +84,27 @@ The canonical Protos examples remain maintained in the main Protos repository.
 
 ## VS Code integration
 
-The official Protos VS Code extension is installed automatically when the Dev Container is created.
+The official Protos VS Code extension `guillermomolina.protos@0.2.1` is
+installed automatically when the Dev Container is created.
 
-It provides the Protos language integration for VS Code, including syntax highlighting and the editor functionality supported by the current extension release.
+It provides Protos language integration for VS Code, including syntax
+highlighting, Run Current File, the Protos language server, and real debugger
+integration through the external Protos runtime installed in the container.
 
 ## Version policy
 
-The exact Protos runtime version and VS Code extension version are recorded in `versions.json`.
+The exact Protos runtime version and VS Code extension version are recorded
+in `versions.json`.
 
-The Protos runtime is downloaded from the corresponding GitHub release and verified using its recorded SHA-256 checksum before installation.
+The Protos runtime is downloaded as the exact published Native release asset and
+verified using its recorded SHA-256 checksum before installation.
 
-The VS Code extension is installed from the official Visual Studio Code Marketplace using the version recorded in `versions.json`.
+The VS Code extension is installed from the official Visual Studio Code
+Marketplace with the exact version recorded in `versions.json` and pinned in
+`.devcontainer/devcontainer.json`.
 
-The container does not use an unpinned `latest` runtime during image construction.
+The container does not use an unpinned `latest` runtime or extension during
+environment construction.
 
 ## Repository purpose
 
