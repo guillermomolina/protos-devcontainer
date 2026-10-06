@@ -1,13 +1,13 @@
 {
   "protos": {
-    "version": "0.3.143",
-    "releaseTag": "v0.3.143",
-    "asset": "protos-0.3.143-native-linux-x86_64.zip",
-    "sha256": "b8970146ba82d574635d4409b186021f7d2f6934fc8c05ed0ee4ae5f4b5b8534"
+    "version": "0.3.237",
+    "releaseTag": "v0.3.237",
+    "asset": "protos-0.3.237-native-linux-x86_64.zip",
+    "sha256": "510537c7c47a323ed05a5ea8e4e46bc3cd63c761a58e68cb0639548feb8cc46c"
   },
   "vscodeExtension": {
     "publisher": "guillermomolina",
     "name": "protos",
-    "version": "0.2.1"
+    "version": "0.2.2"
   }
 }

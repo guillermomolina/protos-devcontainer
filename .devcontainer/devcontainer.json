@@ -9,7 +9,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "guillermomolina.protos@0.2.1"
+        "guillermomolina.protos@0.2.2"
       ]
     }
   }

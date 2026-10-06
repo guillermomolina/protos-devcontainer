@@ -8,8 +8,8 @@ This repository is for **using Protos**, not for developing the Protos language 
 
 The development environment provides:
 
-- Protos `0.3.143` from the published self-contained Native Linux x86_64 release
-- The official Protos VS Code extension `0.2.1`
+- Protos `0.3.237` from the published self-contained Native Linux x86_64 release
+- The official Protos VS Code extension `0.2.2`
 - A ready-to-use VS Code development environment
 - A curated set of Protos examples
 
@@ -39,7 +39,7 @@ protos --version
 You should see:
 
 ```text
-Protos 0.3.143
+Protos 0.3.237
 ```
 
 You can then create, edit, and run Protos programs directly inside the container.
@@ -84,7 +84,7 @@ The canonical Protos examples remain maintained in the main Protos repository.
 
 ## VS Code integration
 
-The official Protos VS Code extension `guillermomolina.protos@0.2.1` is
+The official Protos VS Code extension `guillermomolina.protos@0.2.2` is
 installed automatically when the Dev Container is created.
 
 It provides Protos language integration for VS Code, including syntax
