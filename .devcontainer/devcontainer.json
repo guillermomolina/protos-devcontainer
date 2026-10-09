@@ -5,6 +5,10 @@
     "context": ".."
   },
   "workspaceFolder": "/workspaces/protos-devcontainer",
+  // Docker:
+  // "runArgs": ["--userns=host"],
+  // Podman rootless:
+  "runArgs": ["--userns=keep-id"],
   "remoteUser": "vscode",
   "customizations": {
     "vscode": {
