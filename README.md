@@ -39,7 +39,7 @@ protos --version
 You should see:
 
 ```text
-Protos 0.3.237
+Protos 0.3.398
 ```
 
 You can then create, edit, and run Protos programs directly inside the container.
