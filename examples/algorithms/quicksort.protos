@@ -30,13 +30,9 @@ quickSort: (array) => {
         pivot: array[left + (right - left).div(2)]
 
         while(i <= j) {
-            while(array[i] < pivot) {
-                i = i + 1
-            }
+            while(array[i] < pivot) { i = i + 1 }
 
-            while(array[j] > pivot) {
-                j = j - 1
-            }
+            while(array[j] > pivot) { j = j - 1 }
 
             if(i <= j) {
                 swap(array, i, j)
@@ -45,18 +41,12 @@ quickSort: (array) => {
             }
         }
 
-        if(left < j) {
-            sortRange(left, j)
-        }
+        if(left < j) { sortRange(left, j) }
 
-        if(i < right) {
-            sortRange(i, right)
-        }
+        if(i < right) { sortRange(i, right) }
     }
 
-    if(array.size() > 1) {
-        sortRange(0, array.size() - 1)
-    }
+    if(array.size() > 1) { sortRange(0, array.size() - 1) }
 
     array
 }

@@ -31,12 +31,14 @@ bubbleSort: (A) => {
     {
         swapped = false
 
-        Range.each(1, n, (i) => {
-            if(A[i - 1] > A[i]) {
-                swap(A, i - 1, i)
-                swapped = true
-            }
-        })
+        Range.each(
+            1,
+            n,
+            (i) => { if(A[i - 1] > A[i]) {
+                    swap(A, i - 1, i)
+                    swapped = true
+                } }
+        )
     } until(!swapped)
 
     A
