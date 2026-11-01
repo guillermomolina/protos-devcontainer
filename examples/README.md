@@ -4,11 +4,21 @@ This directory is a task-oriented cookbook: **how do I do X in Protos?** It is i
 
 All Protos source files use the canonical `.protos` extension. Examples are non-normative; `spec/` remains authoritative.
 
+[`ROSETTA_CODE.md`](ROSETTA_CODE.md) maps exact external Rosetta Code tasks to their canonical sources in this tree, tracks their correctness status, and records any possible future Rosetta Code publication.
+
 Print-dependent cookbook programs are maintained as executable standalone-CLI sources. The CLI regression suite discovers every `.protos` file in this tree containing `print(` and executes it unchanged, including concurrent examples whose `Future.value()` suspension must run inside the Process RootActor task.
+
+`closures/non-local-return.protos` compares contextual `return value` with
+`^value` when returning early from an enclosing function inside an Array
+callback, records the number of visited elements, and shows `(return)(x)` for
+an ordinary function binding named `return`. It teaches that control-flow
+requirement; ordinary index searches may use `std:collections/Array.findIndex`
+instead.
 
 | Task | Example |
 | --- | --- |
 | Print a value | `hello-world.protos` |
+| Print the exact Rosetta Code Hello world/Text message | `basics/rosetta-hello-world-text.protos` |
 | Create and modify slots | `basics/slots.protos` |
 | Create an object | `objects/object-literal.protos` |
 | Delegate behavior | `objects/delegation.protos` |
@@ -19,10 +29,25 @@ Print-dependent cookbook programs are maintained as executable standalone-CLI so
 | Pass behavior as a value | `closures/higher-order.protos` |
 | Work with closure call arguments | `closures/rest-arguments.protos` |
 | Share captured mutable state across closures | `closures/shared-captured-state.protos` |
+| Return early from an enclosing function inside an Array callback | `closures/non-local-return.protos` |
 | Inherit callable behavior through delegation | `objects/inherited-callability.protos` |
 | Express conditional control flow | `control-flow/conditional.protos` |
-| Compute Fibonacci recursively | `algorithms/fibonacci-recursive.protos` |
+| Compute Fibonacci with recursive and iterative variants | `algorithms/fibonacci-recursive.protos` |
 | Compute factorial recursively | `algorithms/factorial-recursive.protos` |
+| Run FizzBuzz over 1 through 100 | `algorithms/fizzbuzz.protos` |
+| Compute the greatest common divisor | `algorithms/greatest-common-divisor.protos` |
+| Simulate the 100 doors problem | `algorithms/100-doors.protos` |
+| Search a sorted integer Array with binary search | `algorithms/binary-search.protos` |
+| Sort an Array with bubble sort | `algorithms/bubble-sort.protos` |
+| Summarize threshold alerts and reconcile forward/reverse stride samples | `algorithms/stride-sampling-summary.protos` |
+| Store, compose and invert first-class functions | `closures/first-class-functions.protos` |
+| Capture independent values in a collection of Closures | `closures/value-capture.protos` |
+| Delegate optional behavior to a helper object | `objects/rosetta-delegates.protos` |
+| Work with exact Fractions, Float mixing, Complex numbers and square roots | `numbers/exact-and-complex.protos` |
+| Set, clear, test and toggle Integer flags with an explicit 32-bit mask | `numbers/bit-flags-and-masks.protos` |
+| Apply and verify a linear transformation with Vectors and Matrices (`std:math/LinearAlgebra`) | `numbers/vector-matrix.protos` |
+| Show portable runtime metadata (`std:runtime`) | `runtime-introspection/info.protos` |
+| Inspect the runtime (`std:inspect`, requires `--inspect`) | `runtime-introspection/inspect.protos` |
 | Use value-keyed maps | `collections/maps.protos` |
 | Use identity-keyed maps | `collections/identity-map.protos` |
 | Use structurally equal values as Map vs IdentityMap keys | `collections/path-keys.protos` |
@@ -32,5 +57,63 @@ Print-dependent cookbook programs are maintained as executable standalone-CLI so
 | Spawn an Actor and request a reply | `concurrency/actor-request-reply.protos` |
 | Observe same-sender FIFO with send then request | `concurrency/actor-send-fifo.protos` |
 | Route a request through an ActorGroup | `concurrency/actor-group-request.protos` |
+| Serve messages from the RootActor through a single-member GroupRef (RootActor service entry) | `actors/root-message-service.protos` |
 | Execute work in an isolated parallel domain | `concurrency/parallel-execution.protos` |
 | Encode, mutate, and decode bytes | `io/encoding-and-bytes.protos` |
+| Answer one HTTP request and observe a rejected request (`std:http/Server`) | `io/http-minimal-response.protos` |
+| Perform an HTTP GET over an application-opened TCP connection (`std:http/Client`, requires `network`) | `io/http-get.protos` |
+| Host HTTP on loopback with explicit bounds and drain it (`std:http/Host`, requires `network`) | `io/http-loopback-hosting.protos` with `io/http-echo-handler.protos` |
+| Host HTTP Workers that call a RootActor service (`std:http/Host`, RootActor service entry, requires `network`) | `http/root-service-host.protos` with `http/root-service-handler.protos` as `app:root-service-handler` |
+| Dispatch requests by method and path with captured parameters (`std:http/Router`) | `io/http-router.protos` |
+| Make one HTTPS request to a URL (`std:http/UrlClient`, requires `network` and `resolver`, manual) | `io/http-url-client.protos` |
+| Resolve a hostname and connect to a chosen address (`std:network/Resolvers`, requires `network` and `resolver`, manual) | `io/hostname-resolution.protos` |
+| Authenticate TLS over a TCP connection and send one HTTP request (`std:tls/Client`, requires `network` and `resolver`, manual) | `io/tls-client-over-tcp.protos` |
+
+Run the metadata example normally from the product repository root:
+`bin/protos protos/examples/runtime-introspection/info.protos`. The
+inspection example requires explicit authority:
+`bin/protos --inspect protos/examples/runtime-introspection/inspect.protos`.
+The inspection command produces implementation-specific diagnostic text;
+do not treat its contents as a stable output format.
+
+`numbers/bit-flags-and-masks.protos` runs with the standalone CLI
+(`bin/protos protos/examples/numbers/bit-flags-and-masks.protos`); it needs no
+imports and no host authority, and prints six true Boolean checks.
+
+The sensor-sampling example
+[`algorithms/stride-sampling-summary.protos`](algorithms/stride-sampling-summary.protos)
+also runs with the standalone CLI and needs no imports or host authorization.
+It exercises generic `for` traversal, positive stepping and descending negative
+stepping, and prints exactly three lines: `2`, `55` and `true`. It is paired
+with the
+[`04-control-flow/04-contextual-for.protos`](../tutorials/04-control-flow/04-contextual-for.protos)
+tutorial.
+
+The standalone CLI grants no `network`. The two `io/` examples marked "requires
+`network`" therefore contain no `print(...)` call and are not run by the CLI
+regression suite; they end with a Boolean verdict and are executed by
+`ProtosHttpLearningMaterialIntegrationTest` in a Java Polyglot embedding with
+socket access, which also installs `http-echo-handler.protos` as `app:echo`.
+The two "RootActor service entry" examples are started through the explicit
+`ProtosRootActorServiceSession` Java entry with their `service` bootstrap
+binding; `protos <file>` would only evaluate their top level. The HTTP one also
+supplies `root-service-handler.protos` through that session's application
+module catalog.
+See the [HTTP guide](../../docs/guide/library/http.md).
+
+Execution modes at a glance:
+
+- **Standalone CLI** (`bin/protos <file>`): `io/http-router.protos`,
+  `numbers/vector-matrix.protos`, and the in-memory byte-duplex HTTP example
+  `io/http-minimal-response.protos`.
+- **Explicit host authority required**: `io/hostname-resolution.protos`,
+  `io/tls-client-over-tcp.protos` and `io/http-url-client.protos` (`network`
+  and `resolver`), and the TCP Host/Client examples above (`network`).
+
+The three examples marked "manual" reach a real external host. They are not
+CI tests and no automated test runs them unchanged. Verified behavior of the
+same facilities lives in controlled-fixture Java integration tests:
+`ProtosResolverAuthorityTest`, `ProtosTlsClientIntegrationTest` and
+`ProtosHttpUrlClientIntegrationTest`. See the
+[networking guide](../../docs/guide/library/networking.md) and the
+[TLS client guide](../../docs/guide/library/tls.md).
