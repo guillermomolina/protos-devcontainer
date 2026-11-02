@@ -14,7 +14,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "guillermomolina.protos@0.2.2",
+        "guillermomolina.protos@0.2.3",
         "anthropic.claude-code"
       ]
     }
