@@ -28,6 +28,7 @@ instead.
 | Capture local state | `closures/captured-state.protos` |
 | Pass behavior as a value | `closures/higher-order.protos` |
 | Work with closure call arguments | `closures/rest-arguments.protos` |
+| Triage incident records with named arguments and constructor defaults | `closures/named-arguments.protos` |
 | Share captured mutable state across closures | `closures/shared-captured-state.protos` |
 | Return early from an enclosing function inside an Array callback | `closures/non-local-return.protos` |
 | Inherit callable behavior through delegation | `objects/inherited-callability.protos` |
@@ -48,6 +49,8 @@ instead.
 | Apply and verify a linear transformation with Vectors and Matrices (`std:math/LinearAlgebra`) | `numbers/vector-matrix.protos` |
 | Show portable runtime metadata (`std:runtime`) | `runtime-introspection/info.protos` |
 | Inspect the runtime (`std:inspect`, requires `--inspect`) | `runtime-introspection/inspect.protos` |
+| Summarize incident severities and distinct responsible teams with Array operations | `collections/array-incident-summary.protos` |
+| Pair ordered stock counts, split by threshold and deduplicate item names | `collections/array-pairing-and-deduplication.protos` |
 | Use value-keyed maps | `collections/maps.protos` |
 | Use identity-keyed maps | `collections/identity-map.protos` |
 | Use structurally equal values as Map vs IdentityMap keys | `collections/path-keys.protos` |
